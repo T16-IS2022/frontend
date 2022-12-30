@@ -1,4 +1,4 @@
-# hf
+# House Finder - Frontend
 
 ## Project setup
 ```
