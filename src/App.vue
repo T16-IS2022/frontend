@@ -1,3 +1,10 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+
+import { loggedUser } from './states/loggedUser';
+
+</script>
+
 <template>
   <v-app>
     <v-app-bar
@@ -6,32 +13,36 @@
       dark
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <router-link :to="{ name: 'home' }">
+          <v-img
+            alt="Logo"
+            class="shrink mr-2"
+            contain
+            src="./assets/logo.png"
+            transition="scale-transition"
+            width="75"
+          />
+        </router-link>
       </div>
-
+      <nav v-if="loggedUser.token">
+        <v-btn plain @click="$router.push('/pubblica')">
+          <span class="mr-2">Pubblica annuncio</span>
+        </v-btn>
+      </nav>
       <v-spacer></v-spacer>
-        <v-btn plain>
+      <nav v-if="!loggedUser.token">
+        <v-btn plain @click="$router.push('/signup')">
           <span class="mr-2">Registrati</span>
         </v-btn>
-        <v-btn plain>
+        <v-btn plain @click="$router.push('/login')">
           <span class="mr-2">Accedi</span>
         </v-btn>
+      </nav>
+      <nav v-if="loggedUser.token">
+        <v-btn plain @click="$router.push('/profilo')">
+          <span class="mr-2">Profilo</span>
+        </v-btn>
+      </nav>
     </v-app-bar>
 
     <v-main>
