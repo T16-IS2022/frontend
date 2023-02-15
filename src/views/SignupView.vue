@@ -1,11 +1,11 @@
 <script setup>
-import Signup from '@/components/MySignup.vue'
+import SignupComp from '@/components/SignupComp.vue'
 </script>
 
 <template>
   <main>
     <h1>Sign up</h1>
     Inserisci le tue credenziali
-    <Signup /> 
+    <SignupComp /> 
     </main>
 </template>
