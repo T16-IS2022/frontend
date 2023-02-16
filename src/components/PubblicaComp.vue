@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="pubblicaAnnuncio">
+    <form @submit.prevent="pubblicaAnnuncio(locali, durataServizio)">
       <label>Superficie:</label>
       <input type="number" min="0" v-model="superficie" required>
       <br/><br/>
@@ -69,7 +69,7 @@
             <input type="radio" id="bimestrale" name="durata" value="62" v-model="durataServizio">
             <label for="bimestrale">2 Mesi- €29,99</label>
           </div>
-          <button @click="effettuaPagamento">Effettua Pagamento</button>
+          <button type="button" @click="effettuaPagamento">Effettua Pagamento</button>
         </form>
       </div>
       <br/>
@@ -79,7 +79,7 @@
   
 <script>
   import { ref } from "vue";
-  
+  import { loggedUser } from "@/states/loggedUser";
   export default {
     data() {
       return {
@@ -127,7 +127,7 @@
         files.value = e.target.files;
       }
   
-      function pubblicaAnnuncio() {
+      function pubblicaAnnuncio(locali, durataServizio) {
         fetch(API_URL + "/annuncio/pubblica", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -139,8 +139,9 @@
                                  arredato: arredato.value, 
                                  foto: [""], 
                                  classe_energetica: classe_energetica.value, 
-                                 locale: this.locale.value, 
-                                 durata_vetrina: this.durataServizio.value
+                                 locale: locali, 
+                                 durata_vetrina: durataServizio,
+                                 userId: loggedUser.id
                                 }),
         })
           .then((resp) => resp.json()) // Transform the data into json

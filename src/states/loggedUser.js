@@ -3,6 +3,7 @@ import { reactive } from 'vue'
 const loggedUser = reactive({
     token: undefined,
     email: undefined,
+    id: undefined,
     nome: undefined,
     cognome: undefined
 })
@@ -10,6 +11,7 @@ const loggedUser = reactive({
 function setLoggedUser (data) {
     loggedUser.token = data.token;
     loggedUser.email = data.email;
+    loggedUser.id = data.id;
     loggedUser.nome = data.nome;
     loggedUser.cognome = data.cognome;
 }
@@ -17,6 +19,7 @@ function setLoggedUser (data) {
 function clearLoggedUser () {
     loggedUser.token = undefined;
     loggedUser.email = undefined;
+    loggedUser.id = undefined;
     loggedUser.nome = undefined;
     loggedUser.cognome = undefined;
 }
