@@ -29,6 +29,16 @@ const routes = [
     path: '/profilo',
     name: 'profilo',
     component: () => import('../views/ProfiloView.vue')
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: () => import('../views/LogoutView.vue')
+  },
+  {
+    path: '/cancella-account',
+    name: 'cancella-account',
+    component: () => import('../views/CancellaAccountView.vue')
   }
 ]
 

@@ -5,7 +5,8 @@ import { loggedUser } from '@/states/loggedUser';
 
 <template>
   <main>
-    <h1>Bentornato {{ loggedUser.nome + " " + loggedUser.cognome }}</h1>
+    <h1 v-if="loggedUser.nome">Bentornato {{ loggedUser.nome + " " + loggedUser.cognome }}</h1>
+    <h1 v-else>Bentornato anonimo</h1>
     <ProfiloComp /> 
     </main>
 </template>

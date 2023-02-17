@@ -44,10 +44,11 @@ function signup() {
       <input name="email" v-model="email" />
       <input name="password" type="password" v-model="password" />
       <button type="button" @click="signup">Sign Up</button>
+      <p>Sei già registrato? <router-link to="/login">Accedi</router-link></p>
     </span>
     <span v-else>
-      <h3>Sign Up completed successfully</h3>
-      <p> You can now login </p>
+      <h3>Grazie per esserti registrato!</h3>
+      <p> Puoi ora effettuare il login </p>
     </span>
   </form>
 </template>

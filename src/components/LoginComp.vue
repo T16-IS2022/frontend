@@ -7,6 +7,7 @@
       <input name="email" v-model="email" placeholder="email"/>
       <input name="password" type="password" v-model="password" placeholder="password"/>
       <button type="button" @click="login">LogIn</button>
+      <p>Non sei ancora registrato? <router-link to="/signup">Crea un account</router-link></p>
     </span>
   </form>
 </template>

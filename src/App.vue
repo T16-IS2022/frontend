@@ -37,7 +37,7 @@ import { loggedUser } from './states/loggedUser';
           <span class="mr-2">Accedi</span>
         </v-btn>
       </nav>
-      <nav v-if="loggedUser.token">
+      <nav>
         <v-btn plain @click="$router.push('/profilo')">
           <span class="mr-2">Profilo</span>
         </v-btn>
