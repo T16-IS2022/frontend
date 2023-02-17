@@ -39,6 +39,10 @@ const routes = [
     path: '/cancella-account',
     name: 'cancella-account',
     component: () => import('../views/CancellaAccountView.vue')
+  },
+  {
+    path: '*',
+    component: () => import('../views/ErrorPageView.vue')
   }
 ]
 

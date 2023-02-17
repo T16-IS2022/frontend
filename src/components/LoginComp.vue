@@ -1,12 +1,11 @@
 <template>
   <form>
-    <span v-if="loggedUser.token">
-      Welcome {{ loggedUser.email }}
-    </span>
     <span v-if="!loggedUser.token">
       <input name="email" v-model="email" placeholder="email"/>
+      <br/>
       <input name="password" type="password" v-model="password" placeholder="password"/>
-      <button type="button" @click="login">LogIn</button>
+      <br/>
+      <button id="btnLogin" type="button" @click="login">LogIn</button>
       <p>Non sei ancora registrato? <router-link to="/signup">Crea un account</router-link></p>
     </span>
   </form>
@@ -21,8 +20,8 @@ import router from "@/router"; // importa il tuo router
 const HOST = /*import.meta.env.VITE_API_HOST ||*/ 'http://localhost:3000';
 const API_URL = HOST;
 
-const email = ref("test");
-const password = ref("1234");
+const email = ref("e-mail");
+const password = ref("password");
 
 const emit = defineEmits(["login"]);
 

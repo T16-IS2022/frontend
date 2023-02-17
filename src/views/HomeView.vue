@@ -9,7 +9,7 @@
     name: 'HomeView',
 
     components: {
-      Home,
+      Home
     },
   }
 </script>

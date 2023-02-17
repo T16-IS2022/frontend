@@ -8,12 +8,12 @@ import {
 const HOST = /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`;
 const API_URL = HOST;
 
-const nome = ref("Mario");
-const cognome = ref("Rossi");
-const data_nascita = ref("01/01/2000")
-const numero_tel = ref("1234567890");
-const email = ref("test@gmail.com");
-const password = ref("1234#");
+const nome = ref("nome");
+const cognome = ref("cognome");
+const data_nascita = ref("data di nascita")
+const numero_tel = ref("numero di telefono");
+const email = ref("e-mail");
+const password = ref("password");
 
 const emit = defineEmits(["signup"]);
 let done = ref(false);
@@ -38,12 +38,18 @@ function signup() {
   <form>
     <span v-if="!done">
       <input name="nome" v-model="nome"/>
+      <br/>
       <input name="cognome" v-model="cognome"/>
-      <input name="data_nascita" v-model="data_nascita"/>
+      <br/>
+      <input type="date" name="data_nascita" v-model="data_nascita"/>
+      <br/>
       <input name="numero_tel" v-model="numero_tel"/>
-      <input name="email" v-model="email" />
+      <br/>
+      <input type="email" name="email" v-model="email" />
+      <br/>
       <input name="password" type="password" v-model="password" />
-      <button type="button" @click="signup">Sign Up</button>
+      <br/>
+      <button id="btnSignup" type="button" @click="signup">Sign Up</button>
       <p>Sei già registrato? <router-link to="/login">Accedi</router-link></p>
     </span>
     <span v-else>

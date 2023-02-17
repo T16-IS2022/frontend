@@ -1,4 +1,5 @@
 <template>
+  <div v-if="!done">
     <form @submit.prevent="pubblicaAnnuncio">
       <label>Superficie:</label>
       <input type="number" min="0" v-model="superficie" required>
@@ -75,6 +76,10 @@
       <br/>
       <button type="submit">Pubblica annuncio</button>
     </form>
+  </div>
+  <div v-else>
+    <p>Il tuo annuncio è stato pubblicato!</p>
+  </div>
 </template>
   
 <script>
@@ -142,7 +147,7 @@
                                 }),
         })
           .then((resp) => resp.json()) // Transform the data into json
-          .then(function (data) {
+          .then((data) => {
             console.log(data);
             this.done = true;
             return;

@@ -10,3 +10,7 @@ import { loggedUser } from '@/states/loggedUser';
     <ProfiloComp /> 
     </main>
 </template>
+
+<style>
+  main{text-align: center;}
+</style>
