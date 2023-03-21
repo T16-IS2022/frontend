@@ -158,7 +158,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   input[type="text"] {
     width: 15%;
     padding: 6px 10px;

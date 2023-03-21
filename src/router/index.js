@@ -41,6 +41,19 @@ const routes = [
     component: () => import('../views/CancellaAccountView.vue')
   },
   {
+    path: '/annunci-pubblicati',
+    name: 'annunci-pubblicati',
+    component: () => import('../views/AnnunciPubblicatiView.vue')
+  },
+  {
+    path: '/annuncio/:id',
+    name: 'annuncio',
+    // route level code-splitting
+    // this generates a separate chunk (About.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/AnnuncioView.vue')
+  },
+  {
     path: '*',
     component: () => import('../views/ErrorPageView.vue')
   }

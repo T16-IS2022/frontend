@@ -34,10 +34,7 @@ function login() {
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
       data.email = email.value;
-      // Here you get the data to modify as you please
-      console.log(data);
       setLoggedUser(data);
-
       emit("login", loggedUser);
       router.push("/"); // reindirizza alla home
     })

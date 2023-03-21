@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { defineEmits } from "vue";
-import {
-  loggedUser
-} from "../states/loggedUser.js";
+import { loggedUser } from "../states/loggedUser.js";
 
 const HOST = /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`;
 const API_URL = HOST;
