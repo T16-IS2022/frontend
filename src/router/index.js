@@ -46,6 +46,11 @@ const routes = [
     component: () => import('../views/AnnunciPubblicatiView.vue')
   },
   {
+    path: '/annunci-salvati',
+    name: 'annunci-salvati',
+    component: () => import('../views/AnnunciSalvatiView.vue')
+  },
+  {
     path: '/annuncio/:id',
     name: 'annuncio',
     // route level code-splitting

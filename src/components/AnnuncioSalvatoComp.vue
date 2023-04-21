@@ -12,7 +12,7 @@
             <p v-if="annuncio.arredato"> Arredato: Sì</p>
             <p v-else> Arredato: No</p>
             <p> Classe energetica: {{ annuncio.classe_energetica }}</p>
-            <button @click="deleteAnnuncio">Elimina</button>
+            <button @click="rimuoviAnnuncioSalvato">Salvato</button>
         </div>
         <hr>
     </div>
@@ -33,7 +33,7 @@
                 API_URL: `http://localhost:3000`
             };
         },
-        deleteAnnuncio() {
+        rimuoviAnnuncioSalvato() {
             fetch('http://localhost:3000' + "/annuncio/" + this.annuncio._id, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}

@@ -12,6 +12,7 @@
             <p v-if="annuncio.arredato"> Arredato: Sì</p>
             <p v-else> Arredato: No</p>
             <p> Classe energetica: {{ annuncio.classe_energetica }}</p>
+            <button @click="salvaAnnuncio">Salva annuncio</button>
         </div>
         <hr>
     </div>
@@ -30,13 +31,20 @@
         },
         methods: {
             getAnnuncio() {
-                fetch(this.API_URL + "/annuncio/" + this.$route.params.id + "/info", {
+                fetch(this.API_URL + "/annuncio/" + this.$route.params.id, {
                     method: "GET",
                     headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token }
                 })
                 .then((resp) => resp.json()) // Transform the data into json
                 .then((data) => {
                     this.annuncio = data.annuncio;
+                })
+                .catch((error) => console.error(error)); // If there is any error you will catch them here
+            },
+            salvaAnnuncio() {
+                fetch(this.API_URL + "/annuncio/" + this.$route.params.id + "/salva", {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
                 })
                 .catch((error) => console.error(error)); // If there is any error you will catch them here
             }

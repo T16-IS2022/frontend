@@ -6,19 +6,19 @@
     </div>
     <div v-else>
         <ul>
-            <Annuncio v-for="annuncio in annunci" :key="annuncio._id" :annuncio="annuncio" />
+            <AnnuncioPubbComp v-for="annuncio in annunci" :key="annuncio._id" :annuncio="annuncio" />
         </ul>
     </div>
   </div>
 </template>
   
 <script>
-    import Annuncio from '@/components/AnnuncioComp.vue';
-    import { loggedUser } from "@/states/loggedUser";
+    import AnnuncioPubbComp from '@/components/AnnuncioPubbComp.vue';
+    import { loggedUser } from "../states/loggedUser.js";
   
     export default {
       components: {
-        Annuncio
+        AnnuncioPubbComp
       },
       data() {
         return {

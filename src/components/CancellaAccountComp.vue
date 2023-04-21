@@ -22,9 +22,9 @@
     methods: {
       cancellaAccount() {
         fetch(this.API_URL + "/utente/cancella", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token},
-        body: JSON.stringify({ userId: loggedUser.id })
+          method: "DELETE",
+          headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token},
+          body: JSON.stringify({ userId: loggedUser.id })
         }).catch((error) => console.error(error));
 
         router.push("/logout");
