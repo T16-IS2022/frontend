@@ -33,13 +33,12 @@ import Annuncio from './AnnuncioComp.vue';
       return {
         query: '',
         annunci: [],
-        HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-        API_URL: `http://localhost:3000`
+        //API_URL: import.meta.env.VITE_LOCALHOST || import.meta.env.VITE_API_HOST
       };
     },
     methods: {
       getAnnunci() {
-        fetch(this.API_URL + "/annuncio/list", {
+        fetch("http://localhost:3000" + "/annuncio/list", {
           method: "GET",
           headers: { "Content-Type": "application/json"},
         })

@@ -46,6 +46,7 @@
                     method: "GET",
                     headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
                 })
+                .then((resp) => resp.json()) // Transform the data into json
                 .catch((error) => console.error(error)); // If there is any error you will catch them here
             }
         },

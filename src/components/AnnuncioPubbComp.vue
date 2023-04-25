@@ -37,7 +37,9 @@
             fetch('http://localhost:3000' + "/annuncio/" + this.annuncio._id, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
-            }).catch((error) => console.error(error));
+            })
+            .then((resp) => resp.json()) // Transform the data into json
+            .catch((error) => console.error(error)); // If there is any error you will catch them here
             router.push("/");
         }
     }

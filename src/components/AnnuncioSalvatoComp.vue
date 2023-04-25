@@ -34,10 +34,12 @@
             };
         },
         rimuoviAnnuncioSalvato() {
-            fetch('http://localhost:3000' + "/annuncio/" + this.annuncio._id, {
+            fetch('http://localhost:3000' + "/annuncio/" + this.annuncio._id + "/salva", {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
-            }).catch((error) => console.error(error));
+            })
+            .then((resp) => resp.json()) // Transform the data into json
+            .catch((error) => console.error(error));
             router.push("/");
         }
     }
