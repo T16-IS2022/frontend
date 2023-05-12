@@ -6,7 +6,7 @@
       <input name="password" type="password" v-model="password" placeholder="password"/>
       <br/>
       <button id="btnLogin" type="button" @click="login">LogIn</button>
-      <p>Non sei ancora registrato? <router-link to="/signup">Crea un account</router-link></p>
+      <p>Non sei ancora registrato? <router-link to="/registrazione">Crea un account</router-link></p>
     </span>
   </form>
 </template>
