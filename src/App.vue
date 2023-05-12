@@ -30,7 +30,7 @@ import { loggedUser } from './states/loggedUser';
       </nav>
       <v-spacer></v-spacer>
       <nav v-if="!loggedUser.token">
-        <v-btn id="signup" plain @click="$router.push('/signup')">
+        <v-btn id="signup" plain @click="$router.push('/registrazione')">
           <span class="mr-2">Registrati</span>
         </v-btn>
         <v-btn id="login" plain @click="$router.push('/login')">

@@ -13,18 +13,18 @@ const numero_tel = ref("numero di telefono");
 const email = ref("e-mail");
 const password = ref("password");
 
-const emit = defineEmits(["signup"]);
+const emit = defineEmits(["registrazione"]);
 let done = ref(false);
 
-function signup() {
-  fetch(API_URL + "/utente/signup", {
+function registrazione() {
+  fetch(API_URL + "/utente/registrazione", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ nome: nome.value, cognome: cognome.value, data_nascita: data_nascita.value, numero_tel: numero_tel.value, email: email.value, password: password.value}),
   })
     .then((resp) => resp.json()) // Transform the data into json
     .then(function () {
-      emit("signup", loggedUser);
+      emit("registrazione", loggedUser);
       done.value = true;
       return;
     })
@@ -47,7 +47,7 @@ function signup() {
       <br/>
       <input name="password" type="password" v-model="password" />
       <br/>
-      <button id="btnSignup" type="button" @click="signup">Sign Up</button>
+      <button id="btnSignup" type="button" @click="registrazione">Sign Up</button>
       <p>Sei già registrato? <router-link to="/login">Accedi</router-link></p>
     </span>
     <span v-else>
