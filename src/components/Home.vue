@@ -23,34 +23,33 @@
 import SearchBar from './SearchBar.vue'
 import Annuncio from './AnnuncioComp.vue';
 
-  export default {
-    name: 'HomePage',
-    components: {
-      SearchBar,
-      Annuncio
-    },
-    data() {
-      return {
-        query: '',
-        annunci: [],
-        //API_URL: import.meta.env.VITE_LOCALHOST || import.meta.env.VITE_API_HOST
-      };
-    },
-    methods: {
-      getAnnunci() {
-        fetch("http://localhost:3000" + "/annuncio/list", {
-          method: "GET",
-          headers: { "Content-Type": "application/json"},
-        })
-        .then((resp) => resp.json()) // Transform the data into json
-        .then((data) => {
-          this.annunci = data.annunci;
-        })
-        .catch((error) => console.error(error)); // If there is any error you will catch them here
-      }
-    },
-    mounted() {
-      this.getAnnunci();
+export default {
+  name: 'HomePage',
+  components: {
+    SearchBar,
+    Annuncio
+  },
+  data() {
+    return {
+      query: '',
+      annunci: [],
+    };
+  },
+  methods: {
+    getAnnunci() {
+      fetch(process.env.VUE_APP_ROOT_API + "/annuncio/list", {
+        method: "GET",
+        headers: { "Content-Type": "application/json"},
+      })
+      .then((resp) => resp.json()) // Transform the data into json
+      .then((data) => {
+        this.annunci = data.annunci;
+      })
+      .catch((error) => console.error(error)); // If there is any error you will catch them here
     }
+  },
+  mounted() {
+    this.getAnnunci();
   }
+}
 </script>

@@ -22,14 +22,12 @@
         },
         data() {
           return {
-            annunci: [],
-            HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-            API_URL: `http://localhost:3000`
+            annunci: []
           };
         },
         methods: {
           getAnnunciSalvati() {
-            fetch(this.API_URL + "/utente/annunci-salvati", {
+            fetch(process.env.VUE_APP_ROOT_API + "/utente/annunci-salvati", {
               method: "GET",
               headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
             })

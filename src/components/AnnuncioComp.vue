@@ -22,12 +22,6 @@
     props: {
       annuncio: Object
     },
-    data() {
-      return {
-          HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-          API_URL: `http://localhost:3000`
-      };
-    },
     methods: {
       visualizzaAnnuncio() {
         // apri la pagina per visualizzare l'annuncio

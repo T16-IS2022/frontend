@@ -27,14 +27,8 @@
       annuncio: Object
     },
     methods: {
-        data() {
-            return {
-                HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-                API_URL: `http://localhost:3000`
-            };
-        },
         rimuoviAnnuncioSalvato() {
-            fetch('http://localhost:3000' + "/annuncio/" + this.annuncio._id + "/salva", {
+            fetch(process.env.VUE_APP_ROOT_API + "/annuncio/salva/" + this.annuncio._id, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
             })

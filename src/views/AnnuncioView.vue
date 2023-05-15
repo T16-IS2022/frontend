@@ -24,14 +24,12 @@
     export default {
         data() {
             return {
-                annuncio: {},
-                HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-                API_URL: `http://localhost:3000`
+                annuncio: {}
             };
         },
         methods: {
             getAnnuncio() {
-                fetch(this.API_URL + "/annuncio/" + this.$route.params.id, {
+                fetch(process.env.VUE_APP_ROOT_API + "/annuncio/" + this.$route.params.id, {
                     method: "GET",
                     headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token }
                 })
@@ -42,7 +40,7 @@
                 .catch((error) => console.error(error)); // If there is any error you will catch them here
             },
             salvaAnnuncio() {
-                fetch(this.API_URL + "/annuncio/" + this.$route.params.id + "/salva", {
+                fetch(process.env.VUE_APP_ROOT_API + "/annuncio/salva/" + this.$route.params.id, {
                     method: "GET",
                     headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
                 })

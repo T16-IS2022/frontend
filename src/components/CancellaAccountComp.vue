@@ -13,18 +13,11 @@
   import router from "@/router";
   
   export default {
-    data() {
-      return {
-        HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-        API_URL: `http://localhost:3000`
-      };
-    },
     methods: {
       cancellaAccount() {
-        fetch(this.API_URL + "/utente/cancella", {
+        fetch(process.env.VUE_APP_ROOT_API + "/utente/" + loggedUser.id, {
           method: "DELETE",
-          headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token},
-          body: JSON.stringify({ userId: loggedUser.id })
+          headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
         }).catch((error) => console.error(error));
 
         router.push("/logout");

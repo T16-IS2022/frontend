@@ -24,21 +24,21 @@ import { loggedUser } from './states/loggedUser';
         </router-link>
       </div>
       <nav v-if="loggedUser.token">
-        <v-btn plain @click="$router.push('/pubblica')">
+        <v-btn id="whiteBtn" plain @click="$router.push('/pubblica')">
           <span class="mr-2">Pubblica annuncio</span>
         </v-btn>
       </nav>
       <v-spacer></v-spacer>
       <nav v-if="!loggedUser.token">
-        <v-btn id="signup" plain @click="$router.push('/registrazione')">
+        <v-btn id="whiteBtn" plain @click="$router.push('/registrazione')">
           <span class="mr-2">Registrati</span>
         </v-btn>
-        <v-btn id="login" plain @click="$router.push('/login')">
+        <v-btn id="purpleBtn" plain @click="$router.push('/login')">
           <span class="mr-2">Accedi</span>
         </v-btn>
       </nav>
       <nav>
-        <v-btn id="profilo" plain @click="$router.push('/profilo')">
+        <v-btn id="whiteBtn" plain @click="$router.push('/profilo')">
           <span class="mr-2">Profilo</span>
         </v-btn>
       </nav>
@@ -73,25 +73,19 @@ export default {
   font-family: 'Montserrat'
 }
 
-#login {
+#purpleBtn {
   background-color: #7934ea;
   color: white;
+  font-weight: bold;
   border: solid #4b5ae2;
   margin: 15px;
   border-radius: 10px;
 }
 
-#signup {
+#whiteBtn {
   background-color: white;
   color: black;
-  border: solid #4b5ae2;
-  margin: 15px;
-  border-radius: 10px;
-}
-
-#profilo {
-  background-color: white;
-  color: black;
+  font-weight: bold;
   border: solid #4b5ae2;
   margin: 15px;
   border-radius: 10px;
@@ -109,12 +103,12 @@ export default {
   justify-content: center;
 }
 
-.v-main{
+/*.v-main{
   background-color: white;
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 0%;
   height: 80%;
   border-radius: 50px;
-}
+}*/
 </style>

@@ -99,8 +99,6 @@
         durata_vetrina: "",
         done: false,
         files: [],
-        HOST: /*import.meta.env.VITE_API_HOST ||*/ `http://localhost:3000`,
-        API_URL: `http://localhost:3000`
       };
     },
     methods: {
@@ -130,7 +128,7 @@
       },
       pubblicaAnnuncio() {
         var isArredato = (this.arredato) ? true : false;
-        fetch(this.API_URL + "/annuncio/pubblica", {
+        fetch(process.env.VUE_APP_ROOT_API + "/annuncio/pubblica", {
           method: "POST",
           headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token},
           body: JSON.stringify({ superficie: this.superficie, 
