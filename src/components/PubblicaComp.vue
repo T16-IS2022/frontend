@@ -128,20 +128,21 @@
       },
       pubblicaAnnuncio() {
         var isArredato = (this.arredato) ? true : false;
-        fetch(process.env.VUE_APP_ROOT_API + "/annuncio/pubblica", {
+        fetch(process.env.VUE_APP_ROOT_API + "/annuncio", {
           method: "POST",
           headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token},
-          body: JSON.stringify({ superficie: this.superficie, 
-                                 numero_bagni: this.numBagni, 
-                                 prezzo: this.prezzo, 
-                                 numero_locali: this.numLocali, 
-                                 indirizzo: this.via, 
-                                 arredato: isArredato, 
-                                 foto: [""], 
-                                 classe_energetica: this.classe_energetica, 
-                                 locale: this.locali, 
-                                 durata_vetrina: this.durata_vetrina,
-                                 userId: loggedUser.id
+          body: JSON.stringify({
+                                  userId: loggedUser.id,
+                                  superficie: this.superficie, 
+                                  numero_bagni: this.numBagni, 
+                                  prezzo: this.prezzo, 
+                                  numero_locali: this.numLocali, 
+                                  indirizzo: this.via, 
+                                  arredato: isArredato, 
+                                  foto: [""], 
+                                  classe_energetica: this.classe_energetica, 
+                                  locale: this.locali, 
+                                  durata_vetrina: this.durata_vetrina,
                                 }),
         })
           .then((resp) => resp.json()) // Transform the data into json
