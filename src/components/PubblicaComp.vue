@@ -2,7 +2,7 @@
   <div v-if="!done">
     <form @submit.prevent="pubblicaAnnuncio">
       <label>Superficie:</label>
-      <input type="number" min="0" v-model="superficie" required>
+      <input type="number" min="0" v-model="superficie_tot" required>
       <br/><br/>
       <label>Numero dei bagni:</label>
       <input type="number" min="0" v-model="numBagni" required>
@@ -89,7 +89,7 @@
     data() {
       return {
         locali: [],
-        superficie: "",
+        superficie_tot: "",
         numBagni: "",
         prezzo: "",
         numLocali: "",
@@ -133,7 +133,7 @@
           headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token},
           body: JSON.stringify({
                                   userId: loggedUser.id,
-                                  superficie: this.superficie, 
+                                  superficie_tot: this.superficie_tot, 
                                   numero_bagni: this.numBagni, 
                                   prezzo: this.prezzo, 
                                   numero_locali: this.numLocali, 
@@ -146,8 +146,7 @@
                                 }),
         })
           .then((resp) => resp.json()) // Transform the data into json
-          .then((data) => {
-            console.log(data);
+          .then(() => {
             this.done = true;
             return;
           })

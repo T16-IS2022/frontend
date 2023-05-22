@@ -92,7 +92,7 @@ import { setLoggedUser } from "../states/loggedUser.js";
                 .then((resp) => resp.json()) // Transform the data into json
                 .then(function (data) {
                   setLoggedUser(data);
-                  if(data.success == true)
+                  if(data.code == 200)
                     router.push("/"); // reindirizza alla home
                   else
                     alert("Email o password errate!"); 

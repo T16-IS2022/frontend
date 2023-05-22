@@ -30,7 +30,7 @@
         deleteAnnuncio() {
             fetch(process.env.VUE_APP_ROOT_API + "/annuncio/" + this.annuncio._id, {
                 method: "DELETE",
-                headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token}
+                headers: { "Content-Type": "application/json", "x-access-token": loggedUser.token }
             })
             .then((resp) => resp.json()) // Transform the data into json
             .catch((error) => console.error(error)); // If there is any error you will catch them here
