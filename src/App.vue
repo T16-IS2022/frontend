@@ -70,7 +70,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap%27');
 
 * {
-  font-family: 'Montserrat'
+  font-family: 'Roboto'
 }
 
 #purpleBtn {

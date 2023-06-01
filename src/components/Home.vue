@@ -1,33 +1,39 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <SearchBar v-model="query"></SearchBar>
-      </v-col>
-      <br/><br/><br/><br/><br/>
-      <h2>Annunci nelle tue vicinanze</h2>
-      <br/><br/><br/>
-    </v-row>
-    <div v-if="!annunci || annunci.length <= 0">
-      <h3>Nessun annuncio presente...</h3>
-    </div>
-    <div v-else>
-      <ul>
-          <Annuncio v-for="annuncio in annunci" :key="annuncio._id" :annuncio="annuncio" />
-      </ul>
-    </div>
-  </v-container>
+  <div>
+    <v-toolbar class="ma-7">
+      <v-text-field
+        hide-details
+        prepend-icon="mdi-magnify"
+        single-line
+      ></v-text-field>
+      <v-btn icon class="ma-5">
+        <v-icon>mdi-filter-variant</v-icon>
+        Filtri
+      </v-btn>
+    </v-toolbar>
+
+    <v-card class="ma-7 px-6 py-8">
+        <h2>Annunci nelle tue vicinanze</h2>
+        <br/>
+        <div v-if="!annunci || annunci.length <= 0">
+          <h3>Nessun annuncio presente...</h3>
+        </div>
+        <div v-else>
+          <ul>
+              <Annuncio v-for="annuncio in annunci" :key="annuncio._id" :annuncio="annuncio" />
+          </ul>
+        </div>
+    </v-card>
+  </div>
 </template>
 
 <script>
-import SearchBar from './SearchBar.vue'
 import Annuncio from './AnnuncioComp.vue';
 
 export default {
   name: 'HomePage',
   components: {
-    SearchBar,
-    Annuncio
+    Annuncio,
   },
   data() {
     return {

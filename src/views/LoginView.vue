@@ -25,6 +25,7 @@
         class="input-group--focused"
         @click:append="show = !show"
       ></v-text-field>
+      <br>
       <router-link to="/registrazione">Password dimenticata?</router-link>
       <br>
       <br>
