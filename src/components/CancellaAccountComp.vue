@@ -4,7 +4,7 @@
       <br/>
       <button @click="cancellaAccount">Sì</button>
       <br/>
-      <router-link to="/">No, torna alla home</router-link>
+      <router-link to="/profilo">No, torna al profilo</router-link>
     </div>
 </template>
   
