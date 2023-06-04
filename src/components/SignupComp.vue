@@ -164,8 +164,9 @@
                                 }),
           })
             .then((resp) => resp.json()) // Transform the data into json
-            .then(() => {
-              this.done = true;
+            .then((data) => {
+              if(data.code == 201)
+                this.done = true;
             })
             .catch((error) => console.error(error)) // If there is any error you will catch them here
             .finally(() => {
