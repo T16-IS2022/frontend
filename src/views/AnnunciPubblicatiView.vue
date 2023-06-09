@@ -1,6 +1,8 @@
 <template>
+  <v-card class="ma-7 px-6 py-8">
   <div>
     <h1>Annunci pubblicati</h1>
+    <br>
     <div v-if="!annunci || annunci.length <= 0">
         <h3>Nessun annuncio presente...</h3>
     </div>
@@ -10,6 +12,7 @@
         </ul>
     </div>
   </div>
+  </v-card>
 </template>
   
 <script>

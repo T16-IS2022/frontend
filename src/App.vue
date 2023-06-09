@@ -102,13 +102,4 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
-/*.v-main{
-  background-color: white;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 0%;
-  height: 80%;
-  border-radius: 50px;
-}*/
 </style>

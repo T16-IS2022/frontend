@@ -7,9 +7,3 @@ import SignupComp from '@/components/SignupComp.vue'
     <SignupComp /> 
     </main>
 </template>
-
-<style>
-main{
-  text-align: center;
-}
-</style>
